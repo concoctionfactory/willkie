@@ -1,28 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import Clients from "./components/clients";
+import Matters from "./components/matters";
+import NavBar from "./components/navBar";
+import Client from "./components/client";
+
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        <NavBar />
+        <main className="container-fluid">
+          <Switch>
+            <Route path="/clients/:id" component={Client} />
+
+            <Route path="/clients" component={Clients} />
+
+            <Route path="/matters" component={Matters} />
+            <Redirect from="/" exact to="/clients" />
+            <Redirect to="/not-found" />
+          </Switch>
+        </main>
       </div>
     );
   }
 }
-
 export default App;
