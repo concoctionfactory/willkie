@@ -28,6 +28,32 @@ main {
   width: 200px;
 }
 
+td .column-name {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  tr {
+    position: relative;
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+
+  td {
+    width: 100%;
+    float: left;
+  }
+
+  td .column-info {
+    float: right;
+  }
+  td .column-name {
+    display: initial;
+    float: left;
+  }
+}
+
 .main-color-dark {
   background-color: #3e2268 !important;
 }
